@@ -56,7 +56,7 @@ main() {
   
   # Command specific flags
   args=
-  eval kubectl "$global_args"
+  eval $kubectl "$global_args"
   eval "$helm" "$helm_cmd"
 }
 
