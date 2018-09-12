@@ -176,8 +176,6 @@ main() {
   fi
 
   eval "$kubectl" "$global_args" "$raw_global_args" "$cmd" "$args" "$raw_args"
-  eval "$helm init --service-account tiller"
-  eval "$helm init --service-account tiller --upgrade"
   eval "$helm" "$helm_cmd" 
   
 }
