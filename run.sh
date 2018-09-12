@@ -1,6 +1,6 @@
 #!/bin/sh
 
-helm="$WERCKER_STEP_ROOT/helm-kubectl"
+helm="$WERCKER_STEP_ROOT/helm"
 kubectl="$WERCKER_STEP_ROOT/kubectl"
 
 main() {
