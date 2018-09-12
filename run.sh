@@ -1,6 +1,6 @@
 #!/bin/sh
 
-kubectl="$WERCKER_STEP_ROOT/kubectl"
+kubectl="$WERCKER_STEP_ROOT/helm-kubectl"
 
 main() {
   display_version
@@ -9,7 +9,12 @@ main() {
     fail "wercker-kubectl: command argument cannot be empty"
   fi
 
-  cmd="$WERCKER_KUBECTL_COMMAND"
+  if [ -z "$WERCKER_HELM_COMMAND" ]; then
+    fail "wercker-helm: command argument cannot be empty"
+  fi
+  
+  kubectl_cmd="$WERCKER_KUBECTL_COMMAND"
+ 
 
   # Global args
   #global_args
@@ -165,10 +170,10 @@ main() {
 
   info "Running kubctl command"
   if [ "$WERCKER_KUBECTL_DEBUG" = "true" ]; then
-    info "kubectl $global_args $raw_global_args $cmd $args $raw_args"
+    info "kubectl $global_args $raw_global_args $kubectl_cmd $args $raw_args"
   fi
 
-  eval "$kubectl" "$global_args" "$raw_global_args" "$cmd" "$args" "$raw_args"
+  eval "$kubectl" "$global_args" "$raw_global_args" "$kubectl_cmd" "$args" "$raw_args"
 }
 
 display_kubectl_version() {
