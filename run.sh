@@ -171,8 +171,14 @@ main() {
   eval "$kubectl" "$global_args" "$raw_global_args" "$cmd" "$args" "$raw_args"
 }
 
-display_version() {
+display_kubectl_version() {
   info "Running kubectl version:"
+  "$kubectl" version --client
+  echo ""
+}
+
+display_helm_version() {
+  info "Running helm version:"
   "$kubectl" version --client
   echo ""
 }
