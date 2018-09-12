@@ -54,12 +54,15 @@ main() {
     global_args="$global_args --client-key=\"$WERCKER_KUBECTL_CLIENT_KEY\""
   fi
   
-  eval "$helm" "$raw_global_args" "$cmd" "$args" "$raw_args"
+  # Command specific flags
+  args=
+  
+  eval "$helm" "$global_args" "$cmd" "$args"
 }
 
 display_helm_version() {
   info "Running helm version:"
-  "$kubectl" version --client
+  "$helm" version --client
   echo ""
 }
 
