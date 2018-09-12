@@ -20,7 +20,14 @@ build:
                 sha256sum kubernetes-client-linux-amd64.tar.gz | grep -q "$KUBERNETES_SHA256"
                 tar xvzf kubernetes-client-linux-amd64.tar.gz
                 kubernetes/client/bin/kubectl version --client
-
+                
+        - script:
+            name: helm install
+            code: |
+              curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > get_helm.sh
+              chmod 700 get_helm.sh
+              ./get_helm.sh
+              
         - script:
             name: prepare output
             code: cp "kubernetes/client/bin/kubectl" "LICENSE" "README.md" "run.sh" "wercker.yml" "step.yml" "$WERCKER_OUTPUT_DIR"
@@ -28,5 +35,4 @@ build:
 publish:
   steps:
     - internal/publish-step:
-        owner: wercker
-
+        owner: vamsiramakrishnan
