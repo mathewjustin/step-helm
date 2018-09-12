@@ -1,9 +1,9 @@
-name: kubectl
-version: 3.9.0
-summary: Step to run kubectl
+name: helm-kubectl
+version: 0.1.0
+summary: Step to run helm
 tags:
-  - kubernetes
-  - kubectl
+  - helm
+
 properties:
 - name: token
   type: string
