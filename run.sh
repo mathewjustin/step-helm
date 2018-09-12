@@ -10,7 +10,7 @@ main() {
 #     fail "wercker-helm: command argument cannot be empty"
 #   fi
   
-  helm_cmd="$WERCKER_HELM_COMMAND"
+  helm_cmd="$WERCKER_HELM_KUBECTL_COMMAND"
  
   
   #global_args
@@ -56,6 +56,7 @@ main() {
   
   # Command specific flags
   args=
+  eval kubectl "$global_args"
   eval "$helm" "$helm_cmd"
 }
 
