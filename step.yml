@@ -29,6 +29,3 @@ properties:
 - name: insecure-skip-tls-verify
   type: string
   required: false
-- name: release-name
-  type: string
-  required: false
