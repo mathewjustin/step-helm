@@ -25,7 +25,7 @@ build:
             name: helm install
             code: |
               curl https://github.com/helm/helm/archive/v2.10.0.tar.gz  | tar zxv -C helm
-              mv helm/linux-amd64/helm /usr/local/bin/helm
+              mv helm/helm-2.10.0 /usr/local/bin/helm
               helm init -c
               
         - script:
