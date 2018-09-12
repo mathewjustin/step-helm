@@ -24,9 +24,9 @@ build:
         - script:
             name: helm install
             code: |
-              curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > get_helm.sh
-              chmod 700 get_helm.sh
-              ./get_helm.sh
+              curl https://github.com/helm/helm/archive/v2.10.0.tar.gz  | tar zxv -C helm
+              mv helm/linux-amd64/helm /usr/local/bin/helm
+              helm init -c
               
         - script:
             name: prepare output
