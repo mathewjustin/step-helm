@@ -6,9 +6,9 @@ kubectl="$WERCKER_STEP_ROOT/kubectl"
 main() {
   display_helm_version
   
-  if [ -z "$WERCKER_HELM_COMMAND" ]; then
-    fail "wercker-helm: command argument cannot be empty"
-  fi
+#   if [ -z "$WERCKER_HELM_COMMAND" ]; then
+#     fail "wercker-helm: command argument cannot be empty"
+#   fi
   
   helm_cmd="$WERCKER_HELM_COMMAND"
  
