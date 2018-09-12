@@ -94,6 +94,9 @@ properties:
 - name: overwrite
   type: string
   required: false
+- name: serviceaccount
+  type: string
+  required: false
 
 - name: debug
   type: string
