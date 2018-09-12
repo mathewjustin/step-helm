@@ -165,6 +165,10 @@ main() {
     args="$args --overwrite=\"$WERCKER_HELM_KUBECTL_OVERWRITE\""
   fi
 
+  helm_args = 
+  if [ -n "$WERCKER_HELM_KUBECTL_SERVICEACCOUNT" ]; then
+    helm_args="$args --service-account=\"$WERCKER_HELM_KUBECTL_SERVICEACCOUNT\""
+  fi
 
   info "Running kubctl command"
   if [ "$WERCKER_HELM_KUBECTL_DEBUG" = "true" ]; then
@@ -172,7 +176,10 @@ main() {
   fi
 
   eval "$kubectl" "$global_args" "$raw_global_args" "$cmd" "$args" "$raw_args"
-  eval "$helm" "$helm_cmd"
+  eval "$helm init --service-account tiller"
+  eval "$helm init --service-account tiller --upgrade"
+  eval "$helm" "$helm_cmd" 
+  
 }
 
 display_helm_version() {
