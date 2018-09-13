@@ -100,9 +100,10 @@ properties:
 - name: overwrite
   type: string
   required: false
-- name: serviceaccount
+- name: command-type
   type: string
-  required: false
+  required: true
+  default: "helm"
 
 - name: debug
   type: string
