@@ -4,7 +4,7 @@ build:
         - shellcheck
 
         - install-packages:
-            packages: curl gettext-base
+            packages: curl gettext
 
         - script:
             name: config
