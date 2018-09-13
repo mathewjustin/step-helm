@@ -26,12 +26,12 @@ build:
             code: |
               mkdir -p helm
               curl https://storage.googleapis.com/kubernetes-helm/helm-v2.10.0-linux-amd64.tar.gz  | tar zxv -C helm
-              helm/linux-amd64/helm init -c
-              helm/linux-amd64/helm version --client
+              mv helm/linux-amd64/helm /usr/local/bin/helm
+              helm init -c
               
         - script:
             name: prepare output
-            code: cp "kubernetes/client/bin/kubectl" "helm/linux-amd64/helm" "LICENSE" "README.md" "run.sh" "wercker.yml" "step.yml" "$WERCKER_OUTPUT_DIR"
+            code: cp "kubernetes/client/bin/kubectl" "/usr/local/bin/helm" "LICENSE" "README.md" "run.sh" "wercker.yml" "step.yml" "$WERCKER_OUTPUT_DIR"
 
 publish:
   steps:
