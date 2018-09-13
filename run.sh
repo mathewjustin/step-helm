@@ -177,9 +177,10 @@ main() {
   fi
 
   info "Initializing Helm"
+  envsubst < "$WERCKER_STEP_ROOT"/config
   "$helm" init --service-account tiller --kubeconfig "$WERCKER_STEP_ROOT"/config
   info "Executing Helm Command"
-  eval "$helm" "$helm_cmd" 
+  eval "$helm" "$helm_cmd"
   
 }
 
