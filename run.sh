@@ -175,13 +175,13 @@ main() {
   if [ "$WERCKER_HELM_KUBECTL_DEBUG" = "true" ]; then
     info "kubectl $global_args $raw_global_args $cmd $args $raw_args"
   fi
-
-  "kubectl $global_args $raw_global_args $cmd $args $raw_args"
+  
   cat "$WERCKER_STEP_ROOT"/config | while read line; do echo $(eval echo `echo $line`); done > "$WERCKER_STEP_ROOT"/config_modified
   mkdir -p $HOME/.kube
   cp "$WERCKER_STEP_ROOT"/config_modified $HOME/.kube/config
+  kubconfig = "$HOME/.kube/config"
   info "Initializing Helm"
-  "$helm" init --service-account tiller
+  "$helm" init --service-account tiller --"$kubeconfig"
   info "Executing Helm Command"
   eval "$helm" "$helm_cmd"
   
