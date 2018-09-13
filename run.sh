@@ -176,10 +176,8 @@ main() {
     info "kubectl $global_args $raw_global_args $cmd $args $raw_args"
   fi
 
-  info "Initializing Kubernetes Cluster and setting context for Helm"
-  eval "$kubectl" "$global_args" "$raw_global_args" "$cmd" "$args" "$raw_args"
   info "Initializing Helm"
-  "$helm" init --kubeconfig = "$WERCKER_STEP_ROOT" /config
+  "$helm" init --service-account tiller --kubeconfig "$WERCKER_STEP_ROOT"/config
   info "Executing Helm Command"
   eval "$helm" "$helm_cmd" 
   
