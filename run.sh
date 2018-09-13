@@ -165,10 +165,10 @@ main() {
     args="$args --overwrite=\"$WERCKER_HELM_KUBECTL_OVERWRITE\""
   fi
 
-  helm_args = 
-  if [ -n "$WERCKER_HELM_KUBECTL_SERVICEACCOUNT" ]; then
-    helm_args="$args --service-account=\"$WERCKER_HELM_KUBECTL_SERVICEACCOUNT\""
-  fi
+#   helm_args = 
+#   if [ -n "$WERCKER_HELM_KUBECTL_SERVICEACCOUNT" ]; then
+#     helm_args="$args --service-account=\"$WERCKER_HELM_KUBECTL_SERVICEACCOUNT\""
+#   fi
 
   info "Running kubctl command"
   if [ "$WERCKER_HELM_KUBECTL_DEBUG" = "true" ]; then
