@@ -27,7 +27,7 @@ build:
               mkdir -p helm
               curl https://storage.googleapis.com/kubernetes-helm/helm-v2.10.0-linux-amd64.tar.gz  | tar zxv -C helm
               mv helm/linux-amd64/helm /usr/local/bin/helm
-              helm init -c
+              helm init --service-account tiller
               
         - script:
             name: prepare output
