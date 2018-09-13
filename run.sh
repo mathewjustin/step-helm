@@ -178,9 +178,9 @@ main() {
   info "Initializing Kubernetes Cluster and setting context for Helm"
   eval "$kubectl" "$global_args" "$raw_global_args" "$cmd" "$args" "$raw_args"
   info "Initializing Helm"
-  "$helm" init -c
+  "$helm" init --service-account tiller
   info "Executing Helm Command"
-  eval "$helm" "$helm_cmd"
+  eval "$helm" "$helm_cmd" 
   
 }
 
