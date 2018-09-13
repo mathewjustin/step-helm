@@ -31,6 +31,12 @@ properties:
 - name: insecure-skip-tls-verify
   type: string
   required: false
+- name: cluster-name
+  type: string
+  required: false
+- name: context-name
+  type: string
+  required: false
 - name: file
   type: string
   required: false
