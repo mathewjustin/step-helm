@@ -165,6 +165,7 @@ main() {
     args="$args --overwrite=\"$WERCKER_HELM_KUBECTL_OVERWRITE\""
   fi
 
+
 #   helm_args = 
 #   if [ -n "$WERCKER_HELM_KUBECTL_SERVICEACCOUNT" ]; then
 #     helm_args="$args --service-account=\"$WERCKER_HELM_KUBECTL_SERVICEACCOUNT\""
@@ -178,7 +179,7 @@ main() {
   info "Initializing Kubernetes Cluster and setting context for Helm"
   eval "$kubectl" "$global_args" "$raw_global_args" "$cmd" "$args" "$raw_args"
   info "Initializing Helm"
-  "$helm" init --service-account tiller --upgrade
+  "$helm" init --kubeconfig = "$WERCKER_STEP_ROOT" /config
   info "Executing Helm Command"
   eval "$helm" "$helm_cmd" 
   
