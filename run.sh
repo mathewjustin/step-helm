@@ -178,13 +178,14 @@ main() {
 
   mkdir -p $HOME/.kube
   cat $WERCKER_STEP_ROOT/config | while read line; do echo $(eval echo `echo $line`); done > $HOME/.kube/config
-  
-  export KUBECONFIG= $HOME/.kube/config
+  cat $HOME/.kube/config
+
+  # export KUBECONFIG= $HOME/.kube/config
   info "Running kubectl command"
-  $kubectl cluster-info
+  $kubectl cluster-info --kubeconfig $HOME/.kube/config
 
   info "Initializing Helm"
-  "$helm" init --service-account tiller --kubeconfig "$KUBECONFIG"
+  "$helm" init --service-account tiller --kubeconfig $HOME/.kube/config
   info "Executing Helm Command"
   eval "$helm" "$helm_cmd"
   
