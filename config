@@ -9,9 +9,9 @@ contexts:
     cluster: "$WERCKER_HELM_KUBECTL_CLUSTER_NAME"
     user: "$WERCKER_HELM_KUBECTL_USERNAME"
   name: "$WERCKER_HELM_KUBECTL_CONTEXT_NAME"
+current-context: "$WERCKER_HELM_KUBECTL_CONTEXT_NAME"
 kind: ""
 users:
 - name: "$WERCKER_HELM_KUBECTL_USERNAME"
   user:
     token: "$WERCKER_HELM_KUBECTL_TOKEN"
----
