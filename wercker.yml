@@ -1,4 +1,4 @@
-box: debian:stable-slim
+box: oraclelinux:7-slim
 build:
     steps:
         - shellcheck
