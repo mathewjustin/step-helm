@@ -1,10 +1,8 @@
-name: helm-kubectl
+name: helm
 version: 0.7.3
 summary: Step to run helm
 tags:
   - helm
-  - kubernetes
-  - kubectl
 
 properties:
 - name: token
@@ -35,69 +33,6 @@ properties:
   type: string
   required: false
 - name: context-name
-  type: string
-  required: false
-- name: file
-  type: string
-  required: false
-- name: output
-  type: string
-  required: false
-- name: template
-  type: string
-  required: false
-- name: patch
-  type: string
-  required: false
-- name: interactive
-  type: string
-  required: false
-- name: image
-  type: string
-  required: false
-- name: timeout
-  type: string
-  required: false
-- name: update-period
-  type: string
-  required: false
-- name: deployment-label-key
-  type: string
-  required: false
-- name: poll-interval
-  type: string
-  required: false
-- name: rollback
-  type: string
-  required: false
-- name: replicas
-  type: string
-  required: false
-- name: current-replicas
-  type: string
-  required: false
-- name: resource-version
-  type: string
-  required: false
-- name: pod
-  type: string
-  required: false
-- name: stdin
-  type: string
-  required: false
-- name: tty
-  type: string
-  required: false
-- name: grace-period
-  type: string
-  required: false
-- name: selector
-  type: string
-  required: false
-- name: all
-  type: string
-  required: false
-- name: overwrite
   type: string
   required: false
 - name: client-only
