@@ -6,7 +6,7 @@ build:
         - script: 
             name: install envsubst
             code: |
-                yum install gettext
+                yum -y install gettext
 
         - script:
             name: config
