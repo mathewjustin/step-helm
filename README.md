@@ -1,4 +1,4 @@
-# helm
+# helm-init
 
 This step vendors the helm executable, and allows the user to execute a
 command. Most options are passed along to the `helm` executable as is.
