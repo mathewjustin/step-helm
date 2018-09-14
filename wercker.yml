@@ -6,7 +6,7 @@ build:
         - script: 
             name: install envsubst
             code: |
-                yum -y install gettext which tar curl
+                yum -y install gettext which tar curl gzip
 
         - script:
             name: config
