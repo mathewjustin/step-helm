@@ -39,15 +39,3 @@ properties:
   type: boolean
   required: false
   default: true
-
-
-- name: debug
-  type: string
-  required: false
-  default: "false"
-- name: raw-global-args
-  type: string
-  required: false
-- name: raw-args
-  type: string
-  required: false
