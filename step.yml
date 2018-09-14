@@ -100,6 +100,10 @@ properties:
 - name: overwrite
   type: string
   required: false
+- name: client-only
+  type: boolean
+  required: false
+  default: true
 
 
 - name: debug
