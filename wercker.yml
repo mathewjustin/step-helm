@@ -3,8 +3,11 @@ build:
     steps:
         - shellcheck
 
-        - install-packages:
-            packages: curl gettext-base
+        - script:
+            name: install packages
+            code: |
+                yum install curl
+                yum install gettext-base
 
         - script:
             name: config
