@@ -1,6 +1,6 @@
 name: helm
-version: 1.0.0
-summary: Step to run helm init
+version: 1.0.1
+summary: Step to run helm
 tags:
   - helm
 
