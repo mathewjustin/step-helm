@@ -4,12 +4,6 @@ build:
         - shellcheck
 
         - script:
-            name: install packages
-            code: |
-                yum install curl
-                yum install gettext-base
-
-        - script:
             name: config
             code: |
                 export KUBERNETES_VERSION="1.10.5"
