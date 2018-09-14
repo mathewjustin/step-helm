@@ -4,7 +4,7 @@ helm="$WERCKER_STEP_ROOT/helm"
 kubectl="$WERCKER_STEP_ROOT/kubectl"
 
 main() {
-  display_helm_version
+  display_helm_kubectl_version
   
 #   if [ -z "$WERCKER_HELM_COMMAND" ]; then
 #     fail "wercker-helm: command argument cannot be empty"
@@ -174,7 +174,7 @@ main() {
   cat $HOME/.kube/config
 
   # export KUBECONFIG= $HOME/.kube/config
-  info "Running kubectl command"
+  info "Connecting to the Cluster as specified in kubeconfig"
   $kubectl cluster-info --kubeconfig $HOME/.kube/config
 
   info "Initializing Helm"
@@ -184,7 +184,7 @@ main() {
   
 }
 
-display_helm_version() {
+display_helm_kubectl_version() {
   info "Running kubectl version:"
   "$kubectl" version --client
   echo ""
