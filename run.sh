@@ -171,7 +171,7 @@ main() {
 #     helm_args="$args --service-account=\"$WERCKER_HELM_KUBECTL_SERVICEACCOUNT\""
 #   fi
 
-  info "Running kubctl command"
+  
   if [ "$WERCKER_HELM_KUBECTL_DEBUG" = "true" ]; then
     info "kubectl $global_args $raw_global_args $cmd $args $raw_args"
   fi
@@ -180,6 +180,9 @@ main() {
   mkdir -p $HOME/.kube
   cp "$WERCKER_STEP_ROOT"/config_modified $HOME/.kube/config
   export KUBECONFIG = "$HOME/.kube/config"
+  info "Running kubectl command"
+  "$kubectl" cluster-info
+
   info "Initializing Helm"
   "$helm" init --service-account tiller --kubeconfig "$KUBECONFIG"
   info "Executing Helm Command"
