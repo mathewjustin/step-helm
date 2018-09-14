@@ -2,6 +2,11 @@ box: oraclelinux:7.5
 build:
     steps:
         - shellcheck
+         
+        - script: 
+            name: install envsubst
+            code: |
+                yum install envsubst
 
         - script:
             name: config
