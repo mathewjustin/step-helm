@@ -164,21 +164,12 @@ main() {
   if [ -n "$WERCKER_HELM_KUBECTL_OVERWRITE" ]; then
     args="$args --overwrite=\"$WERCKER_HELM_KUBECTL_OVERWRITE\""
   fi
-
-
-#   helm_args = 
-#   if [ -n "$WERCKER_HELM_KUBECTL_SERVICEACCOUNT" ]; then
-#     helm_args="$args --service-account=\"$WERCKER_HELM_KUBECTL_SERVICEACCOUNT\""
-#   fi
-
   
   if [ "$WERCKER_HELM_KUBECTL_DEBUG" = "true" ]; then
     info "kubectl $global_args $raw_global_args $cmd $args $raw_args"
   fi
 
   mkdir -p $HOME/.kube
-  # cat $WERCKER_STEP_ROOT/config | while read line; do echo $(eval echo `echo $line`); done > $HOME/.kube/config
-  ls -l
   $WERCKER_STEP_ROOT/envsubst < "$WERCKER_STEP_ROOT/config" > "$HOME/.kube/config"
   cat $HOME/.kube/config
 
