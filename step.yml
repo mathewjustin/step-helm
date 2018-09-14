@@ -1,4 +1,4 @@
-name: helm-init
+name: helm
 version: 1.0.0
 summary: Step to run helm init
 tags:
@@ -35,7 +35,3 @@ properties:
 - name: context-name
   type: string
   required: false
-- name: client-only
-  type: boolean
-  required: false
-  default: true
