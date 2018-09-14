@@ -1,5 +1,5 @@
 name: helm-kubectl
-version: 0.6.3
+version: 0.6.4
 summary: Step to run helm
 tags:
   - helm

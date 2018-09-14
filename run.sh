@@ -176,12 +176,12 @@ main() {
     info "kubectl $global_args $raw_global_args $cmd $args $raw_args"
   fi
 
-  cat "$WERCKER_STEP_ROOT"/config | while read line; do echo $(eval echo `echo $line`); done > "$WERCKER_STEP_ROOT"/config_modified
   mkdir -p $HOME/.kube
-  cp "$WERCKER_STEP_ROOT"/config_modified $HOME/.kube/config
-  export KUBECONFIG=$HOME/.kube/config
+  cat $WERCKER_STEP_ROOT/config | while read line; do echo $(eval echo `echo $line`); done > $HOME/.kube/config
+  
+  export KUBECONFIG= $HOME/.kube/config
   info "Running kubectl command"
-  "$kubectl" cluster-info
+  $kubectl cluster-info
 
   info "Initializing Helm"
   "$helm" init --service-account tiller --kubeconfig "$KUBECONFIG"
