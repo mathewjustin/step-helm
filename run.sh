@@ -178,7 +178,8 @@ main() {
 
   mkdir -p $HOME/.kube
   # cat $WERCKER_STEP_ROOT/config | while read line; do echo $(eval echo `echo $line`); done > $HOME/.kube/config
-  /usr/bin/envsubst < "$WERCKER_STEP_ROOT/config" > "$HOME/.kube/config"
+  ls -l
+  $WERCKER_STEP_ROOT/envsubst < "$WERCKER_STEP_ROOT/config" > "$HOME/.kube/config"
   cat $HOME/.kube/config
 
   # export KUBECONFIG= $HOME/.kube/config
