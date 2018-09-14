@@ -9,7 +9,7 @@ main() {
 #   if [ -z "$WERCKER_HELM_COMMAND" ]; then
 #     fail "wercker-helm: command argument cannot be empty"
 #   fi
-  
+  export PATH="/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin"
   cmd="cluster-info"
   helm_cmd="$WERCKER_HELM_KUBECTL_COMMAND"
  
@@ -177,7 +177,8 @@ main() {
   fi
 
   mkdir -p $HOME/.kube
-  cat $WERCKER_STEP_ROOT/config | while read line; do echo $(eval echo `echo $line`); done > $HOME/.kube/config
+  # cat $WERCKER_STEP_ROOT/config | while read line; do echo $(eval echo `echo $line`); done > $HOME/.kube/config
+  envsubst < $WERCKER_STEP_ROOT/config > $HOME/.kube/config
   cat $HOME/.kube/config
 
   # export KUBECONFIG= $HOME/.kube/config

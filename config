@@ -14,3 +14,4 @@ users:
 - name: "$WERCKER_HELM_KUBECTL_USERNAME"
   user:
     token: "$WERCKER_HELM_KUBECTL_TOKEN"
+---
