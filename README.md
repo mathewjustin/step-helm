@@ -9,4 +9,4 @@ command. Most options are passed along to the `helm` executable as is.
 ## Helm flags
 
 The following options are available as wercker properties. The values are passed
-directly to the `kubectl` command. See the `helm` for the documentation.
+directly to the `helm` command. See the `helm` for the documentation.
