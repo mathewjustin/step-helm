@@ -12,28 +12,27 @@ main() {
 
   cmd="cluster-info"
   helm_cmd="$WERCKER_HELM_COMMAND"
- 
-  helm_args = 
+
+  helm_args=
   # release-name
   if [ -n "$WERCKER_HELM_RELEASE_NAME" ]; then
-    helm_args ="$helm_args --name=\"$WERCKER_HELM_RELEASE_NAME\""
+    helm_args="$helm_args --name=\"$WERCKER_HELM_RELEASE_NAME\""
   fi
 
   # release-namespace
   if [ -n "$WERCKER_HELM_RELEASE_NAMESPACE" ]; then
-    helm_args ="$helm_args --namespace=\"$WERCKER_HELM_RELEASE_NAMESPACE\""
+    helm_args="$helm_args --namespace=\"$WERCKER_HELM_RELEASE_NAMESPACE\""
   fi
 
   # repo
   if [ -n "$WERCKER_HELM_REPO" ]; then
-    helm_args ="$helm_args --repo=\"$WERCKER_HELM_REPO\""
-    helm_args ="$helm_args \"$WERCKER_HELM_CHART_NAME\""
-
+    helm_args="$helm_args --repo=\"$WERCKER_HELM_REPO\""
+    helm_args="$helm_args \"$WERCKER_HELM_CHART_NAME\""
   else
     if [ -n "$WERCKER_HELM_CHART_NAME" ]; then
-      helm_args ="$helm_args \"$WERCKER_HELM_CHART_NAME\""
+      helm_args="$helm_args \"$WERCKER_HELM_CHART_NAME\""
       $WERCKER_STEP_ROOT/envsubst < "$WERCKER_HELM_CHART_NAME/values.yaml" > "$HOME/values.yaml"
-      helm_args ="$helm_args -f \"$HOME/values.yaml\""
+      helm_args="$helm_args -f \"$HOME/values.yaml\""
       cat $HOME/values.yaml
     fi 
   fi
@@ -41,7 +40,7 @@ main() {
  # values file
   if [ -n "$WERCKER_HELM_VALUES_FILE" ]; then
     $WERCKER_STEP_ROOT/envsubst < "$WERCKER_HELM_VALUES_FILE" > "$HOME/values.yaml"
-    helm_args ="$helm_args -f \"$HOME/values.yaml\""
+    helm_args="$helm_args -f \"$HOME/values.yaml\""
   fi 
   
   # Global args
