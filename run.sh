@@ -32,18 +32,15 @@ main() {
   # repo
   if [ -n "$WERCKER_HELM_REPO" ]; then
     helm_args ="$helm_args --repo=\"$WERCKER_HELM_REPO\""
+    helm_args ="$helm_args \"$WERCKER_HELM_CHART_NAME\""
   else
     if [ -n "$WERCKER_HELM_CHART_NAME" ]; then
       helm_args ="$helm_args \"$WERCKER_HELM_CHART_NAME\""
       $WERCKER_STEP_ROOT/envsubst < "$WERCKER_HELM_CHART_NAME/values.yaml" > "$HOME/values.yaml"
       helm_args ="$helm_args -f \"$HOME/values.yaml\""
+      cat $HOME/values.yaml
     fi 
   fi
-
-  # chart-name
-  if [ -n "$WERCKER_HELM_CHART_NAME" ]; then
-    helm_args ="$helm_args \"$WERCKER_HELM_CHART_NAME\""
-  fi 
 
  # values file
   if [ -n "$WERCKER_HELM_VALUES_FILE" ]; then
