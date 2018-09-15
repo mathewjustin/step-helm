@@ -1,5 +1,5 @@
 name: helm
-version: 1.0.4
+version: 1.0.5
 summary: Step to run helm install
 tags:
   - helm
@@ -52,9 +52,6 @@ properties:
   type: string
   required: false
 - name: chart-name
-  type: string
-  required: false
-- name: chart-directory
   type: string
   required: false
 - name: values-file
