@@ -1,10 +1,11 @@
 name: helm
-version: 1.0.1
-summary: Step to run helm
+version: 1.0.2
+summary: Step to run helm install
 tags:
   - helm
 
 properties:
+# Properties to connect to Kubernetes Cluster 
 - name: token
   type: string
   required: false
@@ -33,5 +34,26 @@ properties:
   type: string
   required: false
 - name: context-name
+  type: string
+  required: false
+
+# Helm Arguments and Flags 
+- name: client-only
+  type: boolean
+  required: false
+  default: true
+- name: release-name
+  type: string
+  required: false
+- name: release-namespace
+  type: string
+  required: false
+- name: repo
+  type: string
+  required: false
+- name: chart-name
+  type: string
+  required: false
+- name: chart-directory
   type: string
   required: false
