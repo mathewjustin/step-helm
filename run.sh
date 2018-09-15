@@ -42,6 +42,8 @@ main() {
   #chart-directory
   if [ -n "$WERCKER_HELM_SOURCE" ]; then
     helm_args ="$helm_args \"$WERCKER_HELM_CHART_DIRECTORY\""
+    $WERCKER_STEP_ROOT/envsubst < "$WERCKER_HELM_CHART_DIRECTORY/values.yaml" > "$HOME/values.yaml"
+    helm_args ="$helm_args -f \"$HOME/values.yaml\""
   fi 
 
  # values file
