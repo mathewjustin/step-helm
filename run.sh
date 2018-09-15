@@ -13,12 +13,7 @@ main() {
   cmd="cluster-info"
   helm_cmd="$WERCKER_HELM_COMMAND"
  
-  helm_args=
-  # client only
-  if [ -n "$WERCKER_HELM_CLIENT_ONLY" ]; then
-    helm_args ="$helm_args --client-only"
-  fi
-   
+  helm_args = 
   # release-name
   if [ -n "$WERCKER_HELM_RELEASE_NAME" ]; then
     helm_args ="$helm_args --name=\"$WERCKER_HELM_RELEASE_NAME\""
@@ -33,6 +28,7 @@ main() {
   if [ -n "$WERCKER_HELM_REPO" ]; then
     helm_args ="$helm_args --repo=\"$WERCKER_HELM_REPO\""
     helm_args ="$helm_args \"$WERCKER_HELM_CHART_NAME\""
+
   else
     if [ -n "$WERCKER_HELM_CHART_NAME" ]; then
       helm_args ="$helm_args \"$WERCKER_HELM_CHART_NAME\""
