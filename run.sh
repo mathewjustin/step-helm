@@ -23,6 +23,10 @@ main() {
     if [ -n "$WERCKER_HELM_RELEASE_NAMESPACE" ]; then
       helm_args="$helm_args --namespace=\"$WERCKER_HELM_RELEASE_NAMESPACE\""
     fi
+  else
+    if [ -n "$WERCKER_HELM_RELEASE_NAME" ]; then
+      helm_args="$helm_args \"$WERCKER_HELM_RELEASE_NAME\""
+    fi
   fi
 
   # repo
