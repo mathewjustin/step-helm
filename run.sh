@@ -15,13 +15,14 @@ main() {
 
   helm_args=
   # release-name
-  if [ -n "$WERCKER_HELM_RELEASE_NAME" ]; then
-    helm_args="$helm_args --name=\"$WERCKER_HELM_RELEASE_NAME\""
-  fi
-
-  # release-namespace
-  if [ -n "$WERCKER_HELM_RELEASE_NAMESPACE" ]; then
-    helm_args="$helm_args --namespace=\"$WERCKER_HELM_RELEASE_NAMESPACE\""
+  if [ $helm_cmd == "install" ]; then 
+    if [ -n "$WERCKER_HELM_RELEASE_NAME" ]; then
+      helm_args="$helm_args --name=\"$WERCKER_HELM_RELEASE_NAME\""
+    fi
+    # release-namespace
+    if [ -n "$WERCKER_HELM_RELEASE_NAMESPACE" ]; then
+      helm_args="$helm_args --namespace=\"$WERCKER_HELM_RELEASE_NAMESPACE\""
+    fi
   fi
 
   # repo
