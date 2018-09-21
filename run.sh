@@ -98,6 +98,7 @@ main() {
   info "Initializing Helm"
   "$helm" init --service-account tiller --kubeconfig $HOME/.kube/config --upgrade
   info "Executing Helm Command"
+  echo "$helm" "$helm_cmd" "$helm_args" 
   eval "$helm" "$helm_cmd" "$helm_args" 
 }
 
