@@ -38,4 +38,4 @@ build:
 publish:
   steps:
     - internal/publish-step:
-        owner: vamsiramakrishnan
+        owner: justinmamathew
